@@ -37,8 +37,6 @@ public class ApacheClientTEST extends BaseTest {
     @BeforeSuite
     public void setUp() throws URISyntaxException {
         Dotenv dotenv = Dotenv.load();
-        PrefPOST prefPOST = new PrefPOST("global","regular","blue","#4E7F9F");
-        //boardPOST = new BoardPOST("Terra",true,false,"Release 2.17.3","private",prefPOST);
         key= dotenv.get("TRELLO_WORKPLACE_KEY");
         token=dotenv.get("TRELLO_WORKPLACE_TOKEN");
         boardPOST = new BoardPOST("Terraria","Release 2.13.7");
