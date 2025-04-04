@@ -53,28 +53,28 @@ public class ApacheClientTEST extends BaseTest {
 
     @Test(priority = 1)
     public void POSTBoard() throws IOException {
-//        HttpPost request = new HttpPost(uri1);
-//        request.setHeader("Content-Type", "application/json");
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        String jsonPayload = objectMapper.writeValueAsString(boardPOST);
-//        StringEntity entity = new StringEntity(jsonPayload);
-//        request.setEntity(entity);
-//        try(CloseableHttpClient client = HttpClients.createDefault()) {
-//            CloseableHttpResponse response = (CloseableHttpResponse) client.execute(request);
-//
-//            String jsonResponse = EntityUtils.toString(response.getEntity());
-//            Assert.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
-//
-//            JsonNode node = objectMapper.readTree(jsonResponse);
-//
-//            String name = node.get("name").asText();
-//            String desc = node.get("desc").asText();
-//
-//            Assert.assertEquals(name,"Terraria");
-//            Assert.assertEquals(desc,"Release 2.13.7");
-//            boardID = node.get("id").asText();
-//        }
-        HttpRequest request = new HttpPost(String.valueOf(TestSteps.buildRequest(requestSpec)));
+        HttpPost request = new HttpPost(uri1);
+        request.setHeader("Content-Type", "application/json");
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonPayload = objectMapper.writeValueAsString(boardPOST);
+        StringEntity entity = new StringEntity(jsonPayload);
+        request.setEntity(entity);
+        try(CloseableHttpClient client = HttpClients.createDefault()) {
+            CloseableHttpResponse response = (CloseableHttpResponse) client.execute(request);
+
+            String jsonResponse = EntityUtils.toString(response.getEntity());
+            Assert.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
+
+            JsonNode node = objectMapper.readTree(jsonResponse);
+
+            String name = node.get("name").asText();
+            String desc = node.get("desc").asText();
+
+            Assert.assertEquals(name,"Terraria");
+            Assert.assertEquals(desc,"Release 2.13.7");
+            boardID = node.get("id").asText();
+        }
+//        HttpRequest request = new HttpPost(String.valueOf(TestSteps.buildRequest(requestSpec)));
 
     }
 
