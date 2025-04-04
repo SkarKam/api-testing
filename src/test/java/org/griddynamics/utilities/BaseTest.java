@@ -1,6 +1,7 @@
 package org.griddynamics.utilities;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import io.restassured.RestAssured;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -10,18 +11,20 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-public class BaseTest {
-    protected static RequestSpecification requestSpec;
-    protected static ResponseSpecification responseSpec;
+    public class BaseTest {
+        protected static RequestSpecification requestSpec;
+        protected static ResponseSpecification responseSpec;
 
-    @BeforeSuite
-    public void setBaseURI() {
+        @BeforeSuite
+        public void setBaseURI() {
+            Dotenv dotenv = Dotenv.load();
+            requestSpec = new RequestSpecBuilder().
+                    setBaseUri(dotenv.get("TRELLO_URL"))
+                    .addQueryParam("key",dotenv.get("TRELLO_WORKPLACE_KEY"))
+                    .addQueryParam("token",dotenv.get("TRELLO_WORKPLACE_TOKEN"))
+                    .build();
 
-        Dotenv dotenv = Dotenv.load();
-        requestSpec = new RequestSpecBuilder().
-                setBaseUri(dotenv.get("TRELLO_URL")).
-                build();
-    }
+        }
 
     /*****************************************************************************************************************/
 //	@AfterSuite
