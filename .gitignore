@@ -11,8 +11,10 @@ target/
 *.iws
 *.iml
 *.ipr
-
-### Eclipse ###
+.env
+*.env
+/.idea/
+!**src/test/java/org/griddynamics/utilities/
 .apt_generated
 .classpath
 .factorypath
@@ -36,4 +38,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/.idea/
