@@ -1,0 +1,18 @@
+<suite name="MySuite">
+    <test name="RunAll">
+        <classes>
+            <class name="ApacheClientTests.CreateBoard"/>
+            <class name="ApacheClientTests.GetBoard"/>
+            <class name="ApacheClientTests.ModifyBoard"/>
+            <class name="ApacheClientTests.RemoveBoard"/>
+            <class name="RESTAssuredTests.CreateBoard"/>
+            <class name="RESTAssuredTests.GetBoard"/>
+            <class name="RESTAssuredTests.ModifyBoard"/>
+            <class name="RESTAssuredTests.RemoveBoard"/>
+            <class name="RetrofitTests.CreateBoard"/>
+            <class name="RetrofitTests.GetBoard"/>
+            <class name="RetrofitTests.ModifyBoard"/>
+            <class name="RetrofitTests.RemoveBoard"/>
+        </classes>
+    </test>
+</suite>

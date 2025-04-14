@@ -12,7 +12,7 @@ public interface TrelloBoards {
     Call<Board> get(@Path("id") String id, @Query("key") String key, @Query("token") String token);
 
     @POST("1/boards/")
-    Call<Board> post(@Query("key") String key, @Query("token") String token, @Query("name") String name);
+    Call<Board> post(@Query("key") String key, @Query("token") String token, @Query("name") String name, @Query("idOrganization") String idOrganization);
 
     @PUT("1/boards/{id}")
     Call<Board> put(@Path("id") String id, @Query("key") String key, @Query("token") String token , @Body BoardPUT boardPUT);
