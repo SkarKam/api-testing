@@ -1,54 +1,14 @@
 package org.griddynamics.models.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.util.Objects;
 
+    @Data
+    @Builder
     public class BoardPUT {
+        private @NonNull String name;
+        private @NonNull String desc;
 
-        @JsonProperty("name")
-        public String name;
-        @JsonProperty("desc")
-        public String desc;
-
-        public BoardPUT(String name, String desc) {
-            this.name = name;
-            this.desc = desc;
-        }
-
-        public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-        
-    }
-
-    @Override
-    public String toString() {
-        return "BoardPUT{" +
-                "name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        BoardPUT boardPUT = (BoardPUT) object;
-        return Objects.equals(name, boardPUT.name) && Objects.equals(desc, boardPUT.desc);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, desc);
-    }
 }
